@@ -8,7 +8,7 @@ const Header = () => {
   return (
     <>
     <div className='w-[100%] h-[100vh] md:h-[75vh] bg-[#60d3c9] px-[8%] rounded-b-[2%]'>
-        <Navbar />
+        <Navbar active="home" />
         <div className='hidden sm:flex w-full h-[1px] bg-white mb-[4%]'></div>
         <div className='w-[100%] h-[100%] md:h-[65%] flex flex-col md:flex-row justify-between'>
             <div className='w-[100%] md:w-[55%] h-[37%] md:h-[100%] relative'>
