@@ -177,6 +177,7 @@ const SignIn = () => {
                                 <button type='submit' className='flex justify-center mx-auto w-[200px] h-fit py-2 bg-[#60d3c9] text-white rounded-md'>Submit</button>
                             </Form>
                         </Formik>
+                        <p className='mt-12 md:mt-[128px] text-center'>coded by <span className='text-[#60d3c9] font-bold text-xl'>THoRLaNi</span></p>
                     </div>
                 )
             }
@@ -189,7 +190,7 @@ const SignIn = () => {
                         </div>
                         <div className='mt-[60px] '>
                             <h2 className='font-bold text-3xl text-[#60d3c9] relative z-20'>Welcome to our my blog project!</h2>
-                            <h2 className='ml-1 absolute z-10 top-[138px] font-bold text-3xl text-[#60d3c9] opacity-[.6]'>Welcome to our my blog project!</h2>
+                            <h2 id='bgText' className='ml-1 absolute z-10 top-[134px] font-bold text-3xl text-[#60d3c9] opacity-[.6]'>Welcome to our my blog project!</h2>
                         </div>
                         <p className='max-w-[300px] mb-10 text-sm font-normal'>Log in if you have an account or else create a new one by <button onClick={signUp} className='border-b-[1px] border-blue-600 text-blue-600'>Signing up</button></p>
                         <Formik 
@@ -225,10 +226,10 @@ const SignIn = () => {
                                 <button type='submit' className='flex justify-center mx-auto w-[200px] h-fit py-2 bg-[#60d3c9] text-white rounded-md'>Submit</button>
                             </Form>
                         </Formik>
+                        <p className='mt-[223px] md:mt-[308px] text-center'>coded by <span className='text-[#60d3c9] font-bold text-xl'>THoRLaNi</span></p>
                     </div>
                 )
             }
-            <p className='absolute bottom-[10px]'>coded by <span className='text-[#60d3c9] font-bold text-xl'>THoRLaNi</span></p>
         </div>
     </div>
     </>
