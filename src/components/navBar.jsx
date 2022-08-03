@@ -1,0 +1,92 @@
+import React, {useState} from 'react'
+import { NavLink } from 'react-router-dom'
+
+const Navbar = () => {
+    const [isToggle, setIsToggle] = useState(false)
+
+    const showMenu = () => {
+        setIsToggle(!isToggle)
+    }
+
+  return (
+    <>
+        <nav className='w-[100%] h-[15vh] py-[3%] bg-[#60d3c9] sm:flex justify-between items-baseline'>
+          <div className='sm:flex items-baseline w-[30%]'>
+            <div className={`w-[50px] h-[50px] rounded-[50%] ${isToggle ? 'bg-[#60d3c9] fixed' : 'bg-[white] relative'} flex justify-center items-center z-50`}>
+                <h1 className={`font-bold text-2xl ${isToggle ? 'text-white' : 'text-[#60d3c9]'}`}>BT</h1>
+                <h1 className={`font-bold text-2xl ${isToggle ? 'text-white' : 'text-[#60d3c9]'} opacity-[0.4] ml-1 absolute z-10 top-[12px]`}>BT</h1>
+            </div>
+            <ul className='hidden md:flex flex-col sm:ml-[45px] sm:flex-row w-[25%]'>
+              <li className='text-white'>
+                <NavLink
+                  to='/home'
+                >
+                  Home
+                </NavLink>
+              </li>
+              <li className='sm:ml-[45px] text-white'>
+                <NavLink
+                  to='/about'
+                >
+                  About
+                </NavLink>
+              </li>
+              <li className='sm:ml-[45px] text-white'>
+                <NavLink
+                  to='/contact'
+                >
+                  Contact
+                </NavLink>
+              </li>
+            </ul>
+          </div>
+          <ul className='hidden md:flex'>
+            <li className='text-white'>
+              <NavLink
+                to='/account'
+              >
+                Account
+              </NavLink>
+            </li>
+          </ul>
+          <ul className={`${ isToggle ? 'flex' : 'hidden'} fixed z-30 top-0 right-0 w-[100vw] h-[100vh] bg-white flex-col items-center justify-center md:hidden`}>
+            <li className='text-[#60d3c9] absolute top-[170px]'>
+            <NavLink
+                to='/home'
+            >
+                Home
+            </NavLink>
+            </li>
+            <li className='text-[#60d3c9] absolute top-[260px]'>
+            <NavLink
+                to='/about'
+            >
+                About
+            </NavLink>
+            </li>
+            <li className='text-[#60d3c9] absolute top-[350px]'>
+            <NavLink
+                to='/contact'
+            >
+                Contact
+            </NavLink>
+            </li>
+            <li className='text-[#60d3c9] absolute top-[440px]'>
+            <NavLink
+                to='/account'
+            >
+                Account
+            </NavLink>
+            </li>
+          </ul>
+          <button onClick={showMenu} className={`${isToggle ? 'fixed' : 'absolute'} top-8 right-8 z-50 md:hidden`}>
+            <div className={`w-[21px] h-[2px] ${isToggle ? 'bg-[#60d3c9] ease-in duration-300 -rotate-45 transition-transform translate-y-[1px] translate-x-[1px]' : 'bg-[white]'}`}></div>
+            <div className={`${isToggle ? 'hidden' : 'flex'} w-[21px] h-[2px] bg-[white] my-1`}></div>
+            <div className={`w-[21px] h-[2px] ${isToggle ? 'bg-[#60d3c9] ease-in duration-300 rotate-45 transition-transform -translate-y-[0.5px] translate-x-[1px]' : 'bg-[white]'}`}></div>
+          </button>
+        </nav>
+    </>
+  )
+}
+
+export default Navbar
