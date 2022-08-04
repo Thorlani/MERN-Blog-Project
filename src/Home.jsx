@@ -1,7 +1,5 @@
 import React from 'react'
-
 import postImage1 from './asset/post1.jpg'
-import Navbar from './components/navBar'
 import Header from './components/header'
 import Footer from './components/footer'
 

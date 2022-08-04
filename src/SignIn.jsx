@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, { useState, useContext } from 'react'
 import RightPics from './asset/signInImage.jpg'
 import RightPics2 from './asset/RightPics2.jpg'
 import RightPics3 from './asset/RightPics3.jpg'
@@ -9,8 +9,15 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { useNavigate } from 'react-router-dom'
 import "./SignIn.css"
 import axios from 'axios'
+import BlogContext from './contextAPI/Context'
+import cookies from 'js-cookie'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCircleNotch } from "@fortawesome/free-solid-svg-icons";
 
 const SignIn = () => {
+
+    const { setUser, setIsAuthenticated, isAuthenticated } = useContext(BlogContext)
+    const [isloading, setIsLoading] = useState(false)
 
     const navigate = useNavigate()
     const [formStage, setFormStage] = useState(1)
@@ -45,6 +52,7 @@ const SignIn = () => {
     })
 
     const registerSubmit = (values) => {
+        setIsLoading(true)
         const body = {
             firstname: values.firstName,
             lastname: values.lastName,
@@ -55,8 +63,12 @@ const SignIn = () => {
         try {
             axios.post('https://mern-blog-project-by-me.herokuapp.com/api/user/register', body)
             .then(res => {
-                console.log(res)
-                navigate('/home')
+                setUser(values.username)
+                setIsAuthenticated(true)
+                cookies.set('user', values.username)
+                if(isAuthenticated){
+                    navigate('/home')
+                }
             })
         } catch (error) {
             console.log(error)
@@ -64,6 +76,7 @@ const SignIn = () => {
         }
     }
     const loginSubmit = (values) => {
+        setIsLoading(true)
         const body = {
             username: values.username2,
             password: values.password2
@@ -71,8 +84,12 @@ const SignIn = () => {
         try {
             axios.post('https://mern-blog-project-by-me.herokuapp.com/api/user/login', body)
             .then(res => {
-                console.log(res)
-                navigate('/home')
+                setUser(values.username2)
+                setIsAuthenticated(true)
+                cookies.set('user', values.username2)
+                if(isAuthenticated){
+                    navigate('/home')
+                }
             })
         } catch (error) {
             console.log(error)
@@ -81,6 +98,18 @@ const SignIn = () => {
     }
   return (
     <>
+    {isloading && (
+          <div className="bg-black-rgba w-full min-w-[100vw] py-[5rem] h-full min-h-[100vh] overflow-y-auto fixed top-0 left-0 flex z-[100]">
+            <div className="m-auto">
+              <svg className="animate-spin h-[100px] w-[100px]">
+                <FontAwesomeIcon
+                  style={{ color: "#7C88B1", width: "100%", height: "100%" }}
+                  icon={faCircleNotch}
+                ></FontAwesomeIcon>
+              </svg>
+            </div>
+          </div>
+        )}
     <div className='flex justify-center w-[100%] h-[100%]'>
         <div className='hidden md:flex absolute top-0 left-0 w-[100vw] md:relative md:w-[60%] h-[100vh]'>
             <Carousel showThumbs={false} infiniteLoop={true} showArrows={false} autoPlay={true} transitionTime={400} showStatus={false}>
@@ -97,7 +126,7 @@ const SignIn = () => {
         </div>
         <div className='bg-white lg:w-[40%] px-8 py-6 relative z-20 flex justify-center'>
             {
-                formStage === 1 && (
+                formStage === 2 && (
                     <div>
                         <div className='w-[50px] h-[50px] rounded-[50%] bg-[#60d3c9] flex justify-center items-center'>
                             <h1 className='font-bold text-2xl text-[white]'>BT</h1>
@@ -182,7 +211,7 @@ const SignIn = () => {
                 )
             }
             {
-                formStage === 2 && (
+                formStage === 1 && (
                     <div>
                         <div className='w-[50px] h-[50px] rounded-[50%] bg-[#60d3c9] flex justify-center items-center'>
                             <h1 className='font-bold text-2xl text-[white]'>BT</h1>

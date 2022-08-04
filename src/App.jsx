@@ -11,6 +11,7 @@ import SignIn from './SignIn';
 import { BlogProvider } from './contextAPI/Context'
 import Contact from './Contact';
 import About from './About';
+import GuardRoute from './GuardRoute';
 
 function App() {
   return (
@@ -18,10 +19,12 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path='/' element={<SignIn />} />
-          <Route path='/home' element={<Home />} />
-          <Route path='/contact' element={<Contact />} />
-          <Route path='/about' element={<About />} />
-          <Route path='/account' element={<Account />} />
+          <Route element={<GuardRoute />}>
+            <Route path='/home' element={<Home />} />
+            <Route path='/contact' element={<Contact />} />
+            <Route path='/about' element={<About />} />
+            <Route path='/account' element={<Account />} />
+          </Route>
         </Routes>
       </BrowserRouter>
     </BlogProvider>

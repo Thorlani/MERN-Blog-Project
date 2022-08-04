@@ -1,11 +1,20 @@
-import React, {useState} from 'react'
+import React, {useState,useContext} from 'react'
 import { NavLink } from 'react-router-dom'
+import BlogContext from '../contextAPI/Context'
+import cookies from 'js-cookie'
 
 const Navbar = ({active}) => {
     const [isToggle, setIsToggle] = useState(false)
 
     const showMenu = () => {
         setIsToggle(!isToggle)
+    }
+
+    const { setIsAuthenticated } = useContext(BlogContext)
+
+    const logout = () => {
+      cookies.remove('user')
+      setIsAuthenticated(false)
     }
 
   return (
@@ -71,7 +80,7 @@ const Navbar = ({active}) => {
             </li>
             <li className='text-[#60d3c9] absolute top-[440px]'>
             {
-              active === "home" ? <NavLink to='/account'>Account</NavLink> : "Log Out"
+              active === "home" ? <NavLink to='/account'>Account</NavLink> : <NavLink to='/' onClick={logout}>Log Out</NavLink>
             }
             </li>
           </ul>
