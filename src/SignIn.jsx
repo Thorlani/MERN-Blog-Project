@@ -63,6 +63,7 @@ const SignIn = () => {
         try {
             axios.post('https://mern-blog-project-by-me.herokuapp.com/api/user/register', body)
             .then(res => {
+                setIsLoading(false)
                 setUser(values.username)
                 setIsAuthenticated(true)
                 cookies.set('user', values.username)
@@ -84,6 +85,7 @@ const SignIn = () => {
         try {
             axios.post('https://mern-blog-project-by-me.herokuapp.com/api/user/login', body)
             .then(res => {
+                setIsLoading(false)
                 setUser(values.username2)
                 setIsAuthenticated(true)
                 cookies.set('user', values.username2)
