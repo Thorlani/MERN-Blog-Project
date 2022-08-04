@@ -25,7 +25,7 @@ export function BlogProvider({ children }) {
     const [blogPost, setBlogPost] = useState([])
 
     useEffect(() => {
-        axios.get('http://localhost:3001/api/getBlogs/')
+        axios.get('https://mern-blog-project-by-me.herokuapp.com/api/getBlogs/')
         .then(res => {
             setBlogPost(res.data)
             
