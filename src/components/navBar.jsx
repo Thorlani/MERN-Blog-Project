@@ -52,7 +52,7 @@ const Navbar = ({active}) => {
           <ul className={`${active === "home" ? "hidden md:flex" : "hidden lg:flex"}`}>
             <li className='text-white'>
               {
-                active === "home" ? <NavLink to='/account'>Account</NavLink> : "Log Out"
+                active === "home" ? <NavLink to='/account'>Account</NavLink> : <NavLink to='/' onClick={logout}>Log Out</NavLink>
               }
             </li>
           </ul>

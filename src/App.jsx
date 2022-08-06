@@ -12,6 +12,8 @@ import { BlogProvider } from './contextAPI/Context'
 import Contact from './Contact';
 import About from './About';
 import GuardRoute from './GuardRoute';
+import ReadingPage from './components/readingPage';
+import Footer from './components/footer';
 
 function App() {
   return (
@@ -21,12 +23,14 @@ function App() {
           <Route path='/' element={<SignIn />} />
           <Route element={<GuardRoute />}>
             <Route path='/home' element={<Home />} />
+            <Route path='/home/read/:id' element={<ReadingPage />} />
             <Route path='/contact' element={<Contact />} />
             <Route path='/about' element={<About />} />
             <Route path='/account' element={<Account />} />
           </Route>
         </Routes>
       </BrowserRouter>
+      <Footer />
     </BlogProvider>
   );
 }

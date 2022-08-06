@@ -33,12 +33,10 @@ export function BlogProvider({ children }) {
             console.log(err)
         })
     },[])
-
-    console.log(blogPost);
     
 
     return (
-        <BlogContext.Provider value={{setUser, user, setIsAuthenticated, isAuthenticated }}>
+        <BlogContext.Provider value={{setUser, user, setIsAuthenticated, isAuthenticated, blogPost }}>
             {children}
         </BlogContext.Provider>
     )

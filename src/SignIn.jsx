@@ -72,6 +72,7 @@ const SignIn = () => {
                 }
             })
         } catch (error) {
+            window.alert("Ooops, looks like you are having network issues. The registration failed.")
             console.log(error)
             
         }
@@ -94,6 +95,7 @@ const SignIn = () => {
                 }
             })
         } catch (error) {
+            window.alert("Ooops, looks like you are having network issues. Failed to log in.")
             console.log(error)
             
         }
