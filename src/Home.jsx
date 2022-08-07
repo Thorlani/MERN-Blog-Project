@@ -30,7 +30,7 @@ const Home = () => {
     return (
       <div className='w-[100%] h-[100%]' key={item._id}>
         <div className='w-[100%] md:h-[40%] lg:h-[50%] relative overflow-hidden  mb-[10px]'>
-          <img src={`/uploads/${item.imagePath}`} alt="" className=' w-full h-full object-cover'/>
+          <img src={`${item.imagePath}`} alt="" className=' w-full h-full object-cover'/>
         </div>
         <Link to={`/home/read/${item._id}`}>
           <div>

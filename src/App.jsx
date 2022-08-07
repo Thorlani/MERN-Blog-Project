@@ -13,7 +13,6 @@ import Contact from './Contact';
 import About from './About';
 import GuardRoute from './GuardRoute';
 import ReadingPage from './components/readingPage';
-import Footer from './components/footer';
 
 function App() {
   return (

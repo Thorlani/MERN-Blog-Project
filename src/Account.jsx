@@ -4,8 +4,12 @@ import Avatar from './asset/avatar.jpg'
 import axios from 'axios'
 import BlogContext from './contextAPI/Context'
 import { useNavigate } from 'react-router-dom'
+import Cookies from 'js-cookie'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCircleNotch } from "@fortawesome/free-solid-svg-icons";
 
 const Account = () => {
+  const [isloading, setIsLoading] = useState(false)
   const navigate = useNavigate()
   const { user } = useContext(BlogContext)
 
@@ -30,11 +34,10 @@ const Account = () => {
             [name]: type === "checkbox" ? checked : value
         }
     })
-    console.log(post)
   }
 
   const handleSubmit = async (event) => {
-
+    setIsLoading(true)
     const formData = new FormData()
 
     formData.append('postImage', filename)
@@ -44,18 +47,32 @@ const Account = () => {
       event.preventDefault()
       axios.post('https://mern-blog-project-by-me.herokuapp.com/api/blog', formData)
       .then(res => {
+        setIsLoading(false)
         window.location.reload(true)
-        navigate('/home')
       })
     } catch (error) {
+      setIsLoading(false)
+      window.alert(error)
       console.log(error)
     }
   }
 
-
+  let userName = Cookies.get('user')
 
   return (
     <>
+      {isloading && (
+          <div className="bg-black-rgba w-full min-w-[100vw] py-[5rem] h-full min-h-[100vh] overflow-y-auto fixed top-0 left-0 flex z-[100]">
+              <div className="m-auto">
+                  <svg className="animate-spin h-[100px] w-[100px]">
+                  <FontAwesomeIcon
+                      style={{ color: "#7C88B1", width: "100%", height: "100%" }}
+                      icon={faCircleNotch}
+                  ></FontAwesomeIcon>
+                  </svg>
+              </div>
+          </div>
+      )}
       <div className='w-full h-[40vh] bg-[#60d3c9] flex justify-center items-end py-[3%] rounded-b-[2%]'>
         <Navbar active="account" />
         <div className='flex flex-col justify-center items-center'>
@@ -65,7 +82,7 @@ const Account = () => {
             className='w-[100px] h-[100px] object-cover rounded-[50%] border-2 border-[#fff] mb-2'
           />
           <p className='text-white'>Hello</p>
-          <h1 className='text-white font-bold text-3xl'>{user}</h1>
+          <h1 className='text-white font-bold text-3xl'>{userName}</h1>
         </div>
       </div>
       <div className='h-[60vh] flex justify-center items-center'>
@@ -100,10 +117,9 @@ const Account = () => {
                 </div>
                 <div className='flex flex-col'>
                   <label htmlFor="content">Body</label>
-                  <input 
-                    type="textarea"
+                  <textarea 
                     name="content"
-                    className='border-[1px] border-black h-[250px] outline-none rounded-md indent-2'
+                    className='border-[1px] border-black w-full h-[250px] outline-none rounded-md indent-2 pt-2'
                     value={post.content}
                     onChange={handleChange}
                   />

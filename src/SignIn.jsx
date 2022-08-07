@@ -103,17 +103,17 @@ const SignIn = () => {
   return (
     <>
     {isloading && (
-          <div className="bg-black-rgba w-full min-w-[100vw] py-[5rem] h-full min-h-[100vh] overflow-y-auto fixed top-0 left-0 flex z-[100]">
+        <div className="bg-black-rgba w-full min-w-[100vw] py-[5rem] h-full min-h-[100vh] overflow-y-auto fixed top-0 left-0 flex z-[100]">
             <div className="m-auto">
-              <svg className="animate-spin h-[100px] w-[100px]">
+                <svg className="animate-spin h-[100px] w-[100px]">
                 <FontAwesomeIcon
-                  style={{ color: "#7C88B1", width: "100%", height: "100%" }}
-                  icon={faCircleNotch}
+                    style={{ color: "#7C88B1", width: "100%", height: "100%" }}
+                    icon={faCircleNotch}
                 ></FontAwesomeIcon>
-              </svg>
+                </svg>
             </div>
-          </div>
-        )}
+        </div>
+    )}
     <div className='flex justify-center w-[100%] h-[100%]'>
         <div className='hidden md:flex absolute top-0 left-0 w-[100vw] md:relative md:w-[60%] h-[100vh]'>
             <Carousel showThumbs={false} infiniteLoop={true} showArrows={false} autoPlay={true} transitionTime={400} showStatus={false}>
