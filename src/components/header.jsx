@@ -46,7 +46,7 @@ const Header = () => {
         <div className='hidden sm:flex w-full h-[1px] bg-white mb-[4%]'></div>
         <div className='w-[100%] h-[100%] md:h-[65%] flex flex-col md:flex-row justify-between'>
             <div className='w-[100%] md:w-[55%] h-[37%] md:h-[100%] relative'>
-                <img src={bg} alt="Photo by : https://www.pexels.com" className='w-full h-full object-cover absolute z-10'/>
+                <img src={`/uploads/${article1.imagePath}`} alt="Photo by : https://www.pexels.com" className='w-full h-full object-cover absolute z-10'/>
                 <Link to={`/home/read/${article1._id}`}>
                     <div className='absolute z-20 bottom-5 left-[10px]'>
                         <h1 className='font-bold text-white text-[20px] md:text-[26px] lg:text-[24px] xl:text-[28px]'>{article1.title}</h1>
@@ -60,7 +60,7 @@ const Header = () => {
             <div className='w-[100%] md:w-[40%] h-[60%] md:h-[100%]  md:flex md:flex-col'>
                 <div className='w-[100%] h-[20%] md:h-[30%] flex'>
                     <div className='w-[40%] h-[100%] relative overflow-hidden'>
-                        <img src={bg2} alt="" className='absolute w-full h-full object-cover'/>
+                        <img src={`/uploads/${article4.imagePath}`} alt="article display pics" className='absolute w-full h-full object-cover'/>
                     </div>
                     <Link to={`/home/read/${article4._id}`}>
                         <div className='w-[60%] h-[100%] pl-5'>
@@ -77,7 +77,7 @@ const Header = () => {
                 <div className='w-full h-[1px] bg-white my-2'></div>
                 <div className='w-[100%] h-[20%] md:h-[30%] flex'>
                     <div className='w-[40%] h-[100%] relative overflow-hidden'>
-                        <img src={bg3} alt="" className='absolute w-full h-full object-cover'/>
+                        <img src={`/uploads/${article2.imagePath}`} alt="" className='absolute w-full h-full object-cover'/>
                     </div>
                     <Link to={`/home/read/${article2._id}`}>
                         <div className='w-[60%] h-[100%] pl-5'>
@@ -94,7 +94,7 @@ const Header = () => {
                 <div className='w-full h-[1px] bg-white my-2'></div>
                 <div className='w-[100%] h-[20%] md:h-[30%] flex'>
                     <div className='w-[40%] h-[100%] relative overflow-hidden'>
-                        <img src={bg4} alt="" className='absolute w-full h-full object-cover'/>
+                        <img src={`/uploads/${article3.imagePath}`} alt="" className='absolute w-full h-full object-cover'/>
                     </div>
                     <Link to={`/home/read/${article3._id}`}>
                         <div className='w-[60%] h-[100%] pl-5'>

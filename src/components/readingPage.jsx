@@ -26,7 +26,7 @@ const ReadingPage = ({}) => {
         <div className='px-[8%] bg-[#60d3c9] pb-3 rounded-b-[2%] h-[]'>
             <Navbar active={'home'} />
             <div className='px-[8%] w-full h-[500px]'>
-                <img src={RightPics} alt="Photo by : https://www.pexels.com" className='w-full h-full object-cover' />
+                <img src={`/uploads/${blog.imagePath}`} alt="..." className='w-full h-full object-cover' />
             </div>
         </div>
         <div className='text-center'>

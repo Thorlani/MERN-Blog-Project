@@ -3,6 +3,7 @@ import postImage1 from './asset/post1.jpg'
 import Header from './components/header'
 import BlogContext from './contextAPI/Context'
 import {Link} from 'react-router-dom'
+import Footer from './components/footer'
 
 
 const Home = () => {
@@ -29,7 +30,7 @@ const Home = () => {
     return (
       <div className='w-[100%] h-[100%]' key={item._id}>
         <div className='w-[100%] md:h-[40%] lg:h-[50%] relative overflow-hidden  mb-[10px]'>
-          <img src={postImage1} alt="Photo by Rodion Kutsaiev: https://www.pexels.com/photo/white-yellow-and-blue-ball-8566875/" className=' w-full h-full object-cover'/>
+          <img src={`/uploads/${item.imagePath}`} alt="" className=' w-full h-full object-cover'/>
         </div>
         <Link to={`/home/read/${item._id}`}>
           <div>
@@ -51,6 +52,7 @@ const Home = () => {
             {articles}
           </div>
         </div>
+        <Footer />
       </div>
     </>
   )

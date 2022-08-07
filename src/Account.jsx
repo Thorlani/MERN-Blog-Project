@@ -3,19 +3,24 @@ import Navbar from './components/navBar'
 import Avatar from './asset/avatar.jpg'
 import axios from 'axios'
 import BlogContext from './contextAPI/Context'
+import { useNavigate } from 'react-router-dom'
 
 const Account = () => {
-
+  const navigate = useNavigate()
   const { user } = useContext(BlogContext)
 
   const [post, setPost] = useState({
-    image: '',
     title: '',
-    content: '',
+    content: ''
   })
-
+  const [filename, setFilename] = useState('')
+  
 
   const [show, setShow] = useState(false)
+
+  const onChangeFile = (e) => {
+    setFilename(e.target.files[0])
+  }
 
   function handleChange(event) {
     const { name, value, type, checked } = event.target
@@ -29,20 +34,25 @@ const Account = () => {
   }
 
   const handleSubmit = async (event) => {
-    const body = {
-      title: post.title,
-      content: post.content
-    }
+
+    const formData = new FormData()
+
+    formData.append('postImage', filename)
+    formData.append('title', post.title)
+    formData.append('content', post.content)
     try {
       event.preventDefault()
-      axios.post('https://mern-blog-project-by-me.herokuapp.com/api/blog', body)
+      axios.post('https://mern-blog-project-by-me.herokuapp.com/api/blog', formData)
       .then(res => {
-        console.log(res.data);
+        window.location.reload(true)
+        navigate('/home')
       })
     } catch (error) {
       console.log(error)
     }
   }
+
+
 
   return (
     <>
@@ -74,7 +84,7 @@ const Account = () => {
                   <div className={`w-[21px] h-[2px] bg-[#60d3c9] ease-in duration-300 rotate-45 transition-transform -translate-y-[0.5px] translate-x-[1px]`}></div>
                 </button>
               </div>
-              <form onSubmit={handleSubmit}>
+              <form onSubmit={handleSubmit} encType="multipart/form-data">
                 <div className='flex flex-col'>
                   <label htmlFor="title">Title</label>
                   <input 
@@ -104,10 +114,10 @@ const Account = () => {
                 <div>
                   <input 
                     type="file" 
-                    name="image"
-                    className='border-[1px] border-black rounded-md w-full mb-2'
+                    filename="postImage"
+                    className='form-control-file '
                     value={post.image}
-                    onChange={handleChange}
+                    onChange={onChangeFile}
                   />
                   <button className='px-2 py-2 bg-[#60d3c9] text-white rounded-md uppercase'>post</button>
                 </div>
