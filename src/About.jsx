@@ -23,12 +23,12 @@ const About = () => {
       </div>
       <div className='w-full h-fit px-[12%] text-center mt-3'>
         <p className='w-full h-[200px]'>
-          I am a law student with a keen interest in technology. If there is anything I love the most, it would be to recreate things. This love lead to me venturing into digital illustration and finally into web development. Since I began frontend web development, I have not turned back.
+          I am a law student with a keen interest in technology. If there is anything I love the most, it would be to recreate things. This love led to me venturing into digital illustration and finally into web development. Since I began frontend web development, I have not turned back.
         </p>
       </div>
       <div className='flex flex-col items-center justify-center w-full h-[200px]'>
         <p className='font-semibold text-xl mb-4'>Contact me</p>
-        <div className='flex w-[100px] justify-between'>
+        <div className='flex w-[100px] justify-between items-center'>
           <a href="https://web.facebook.com/ThorlaniFootballNews/" target="_blank" rel="noreferrer">
             <img src="./facebook.png" alt="facebook"/>
           </a>
