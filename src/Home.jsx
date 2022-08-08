@@ -3,7 +3,6 @@ import postImage1 from './asset/post1.jpg'
 import Header from './components/header'
 import BlogContext from './contextAPI/Context'
 import {Link} from 'react-router-dom'
-import Footer from './components/footer'
 
 
 const Home = () => {
@@ -52,7 +51,6 @@ const Home = () => {
             {articles}
           </div>
         </div>
-        <Footer />
       </div>
     </>
   )

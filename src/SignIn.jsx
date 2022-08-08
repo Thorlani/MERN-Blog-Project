@@ -210,7 +210,6 @@ const SignIn = () => {
                                 <button type='submit' className='flex justify-center mx-auto w-[200px] h-fit py-2 bg-[#60d3c9] text-white rounded-md'>Submit</button>
                             </Form>
                         </Formik>
-                        <p className='mt-12 md:mt-[128px] text-center'>coded by <span className='text-[#60d3c9] font-bold text-xl'>THoRLaNi</span></p>
                     </div>
                 )
             }
@@ -259,7 +258,6 @@ const SignIn = () => {
                                 <button type='submit' className='flex justify-center mx-auto w-[200px] h-fit py-2 bg-[#60d3c9] text-white rounded-md'>Submit</button>
                             </Form>
                         </Formik>
-                        <p className='mt-[223px] md:mt-[308px] text-center'>coded by <span className='text-[#60d3c9] font-bold text-xl'>THoRLaNi</span></p>
                     </div>
                 )
             }

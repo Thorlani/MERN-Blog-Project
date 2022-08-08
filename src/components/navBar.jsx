@@ -35,16 +35,9 @@ const Navbar = ({active}) => {
               </li>
               <li className='sm:ml-[45px] text-white'>
                 <NavLink
-                  to='/home'
+                  to='/about'
                 >
                   About
-                </NavLink>
-              </li>
-              <li className='sm:ml-[45px] text-white'>
-                <NavLink
-                  to='/home'
-                >
-                  Contact
                 </NavLink>
               </li>
             </ul>
@@ -56,7 +49,7 @@ const Navbar = ({active}) => {
               }
             </li>
           </ul>
-          <ul className={`${ isToggle ? 'flex' : 'hidden'} fixed z-30 top-0 right-0 w-[100vw] h-[100vh] bg-white flex-col items-center justify-center md:hidden`}>
+          <ul className={`${ isToggle ? 'flex' : 'hidden'} fixed z-30 top-0 right-0 w-[100vw] h-[100vh] bg-white flex-col items-center justify-center lg:hidden`}>
             <li className='text-[#60d3c9] absolute top-[170px]'>
             <NavLink
                 to='/home'
@@ -66,16 +59,9 @@ const Navbar = ({active}) => {
             </li>
             <li className='text-[#60d3c9] absolute top-[260px]'>
             <NavLink
-                to='/home'
+                to='/about'
             >
                 About
-            </NavLink>
-            </li>
-            <li className='text-[#60d3c9] absolute top-[350px]'>
-            <NavLink
-                to='/home'
-            >
-                Contact
             </NavLink>
             </li>
             <li className='text-[#60d3c9] absolute top-[440px]'>

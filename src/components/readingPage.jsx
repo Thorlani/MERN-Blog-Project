@@ -23,9 +23,9 @@ const ReadingPage = ({}) => {
 
   return (
     <div className='w-[100vw] h-[100%] overflow-y-hidden'>
-        <div className='px-[8%] bg-[#60d3c9] pb-3 rounded-b-[2%]'>
+        <div className='px-[8%] bg-[#60d3c9] pb-3 rounded-b-[2%] overflow-hidden'>
             <Navbar active={'home'} />
-            <div className='px-[8%] w-full h-fit'>
+            <div className='px-[8%] w-full h-[100%]'>
                 <img src={`${blog.imagePath}`} alt="..." className='w-full h-full object-contain' />
             </div>
         </div>
