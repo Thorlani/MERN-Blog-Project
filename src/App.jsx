@@ -20,15 +20,14 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path='/' element={<SignIn />} />
+          <Route path='/home/read/:id' element={<ReadingPage />} />
           <Route element={<GuardRoute />}>
             <Route path='/home' element={<Home />} />
-            <Route path='/home/read/:id' element={<ReadingPage />} />
             <Route path='/about' element={<About />} />
             <Route path='/account' element={<Account />} />
           </Route>
         </Routes>
       </BrowserRouter>
-      <Footer />
     </BlogProvider>
   );
 }
