@@ -22,10 +22,10 @@ const SignIn = () => {
     const navigate = useNavigate()
     const [formStage, setFormStage] = useState(1)
     const logIn = () => {
-        setFormStage(2)
+        setFormStage(1)
     }
     const signUp = () => {
-        setFormStage(1)
+        setFormStage(2)
     }
     const SIGNUP_VALUES = {
         firstName: '',
@@ -137,8 +137,8 @@ const SignIn = () => {
                             <h1 className='font-bold text-2xl text-[white] opacity-[0.4] ml-1 absolute z-10 top-[36px]'>BT</h1>
                         </div>
                         <div className='mt-[60px] '>
-                            <h2 className='font-bold text-3xl text-[#60d3c9] relative z-20'>Welcome to our my blog project!</h2>
-                            <h2 id='bgText' className='ml-1 absolute z-10 top-[134px] font-bold text-3xl text-[#60d3c9] opacity-[.6]'>Welcome to our my blog project!</h2>
+                            <h2 className='font-bold text-3xl text-[#60d3c9] relative z-20'>Welcome to my blog project!</h2>
+                            <h2 id='bgText' className='ml-1 absolute z-10 top-[134px] font-bold text-3xl text-[#60d3c9] opacity-[.6]'>Welcome to my blog project!</h2>
                         </div>
                         <p className='mb-10 text-sm font-normal'>Are you new? sign up or else <button onClick={logIn} className='border-b-[1px] border-blue-600 text-blue-600'>login</button></p>
                         <Formik 
@@ -221,8 +221,8 @@ const SignIn = () => {
                             <h1 className='font-bold text-2xl text-[white] opacity-[0.4] ml-1 absolute z-10 top-[36px]'>BT</h1>
                         </div>
                         <div className='mt-[60px] '>
-                            <h2 className='font-bold text-3xl text-[#60d3c9] relative z-20'>Welcome to our my blog project!</h2>
-                            <h2 id='bgText' className='ml-1 absolute z-10 top-[134px] font-bold text-3xl text-[#60d3c9] opacity-[.6]'>Welcome to our my blog project!</h2>
+                            <h2 className='font-bold text-3xl text-[#60d3c9] relative z-20'>Welcome to my blog project!</h2>
+                            <h2 id='bgText' className='ml-1 absolute z-10 top-[134px] font-bold text-3xl text-[#60d3c9] opacity-[.6]'>Welcome to my blog project!</h2>
                         </div>
                         <p className='max-w-[300px] mb-10 text-sm font-normal'>Log in if you have an account or else create a new one by <button onClick={signUp} className='border-b-[1px] border-blue-600 text-blue-600'>Signing up</button></p>
                         <Formik 

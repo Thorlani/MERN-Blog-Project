@@ -21,9 +21,9 @@ function App() {
         <Routes>
           <Route path='/' element={<SignIn />} />
           <Route path='/home/read/:id' element={<ReadingPage />} />
-          <Route element={<GuardRoute />}>
             <Route path='/home' element={<Home />} />
             <Route path='/about' element={<About />} />
+          <Route element={<GuardRoute />}>
             <Route path='/account' element={<Account />} />
           </Route>
         </Routes>
