@@ -12,7 +12,7 @@ const useAuth = () => {
 
 const GuardRoute = () => {
     const isAuthenticated = useAuth()
-  return isAuthenticated ? <Outlet /> : <Navigate to="/" />
+  return isAuthenticated ? <Outlet /> : <Navigate to="/signIn" />
 }
 
 export default GuardRoute

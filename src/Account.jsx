@@ -7,6 +7,8 @@ import { useNavigate } from 'react-router-dom'
 import Cookies from 'js-cookie'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleNotch } from "@fortawesome/free-solid-svg-icons";
+import { CKEditor } from '@ckeditor/ckeditor5-react';
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 const Account = () => {
   const [isloading, setIsLoading] = useState(false)
@@ -128,13 +130,15 @@ const Account = () => {
                   </div>
                 </div>
                 <div>
-                  <input 
-                    type="file" 
-                    filename="postImage"
-                    className='form-control-file '
-                    value={post.image}
-                    onChange={onChangeFile}
-                  />
+                  <div className='flex flex-col'>
+                    <input 
+                      type="file" 
+                      filename="postImage"
+                      className='form-control-file '
+                      value={post.image}
+                      onChange={onChangeFile}
+                    />
+                  </div>
                   <button className='px-2 py-2 bg-[#60d3c9] text-white rounded-md uppercase'>post</button>
                 </div>
               </form>

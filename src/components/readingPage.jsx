@@ -1,9 +1,9 @@
 import React,{useState, useEffect} from 'react'
 import Navbar from './navBar'
-import RightPics from '../asset/signInImage.jpg'
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
 import Footer from './footer'
+import parse from 'html-react-parser';
 
 const ReadingPage = ({}) => {
 
@@ -28,7 +28,7 @@ const ReadingPage = ({}) => {
             <div className='px-[8%] bg-[#60d3c9] pb-3 rounded-b-[2%] overflow-hidden'>
                 <Navbar active={'home'} />
                 <div className='px-[8%] w-full h-[100%]'>
-                    <img src={`${blog.imagePath}`} alt="..." className='w-full h-full object-contain' />
+                    <img src={`${blog.imagePath}`} alt="..." className='w-full h-full object-cover' />
                 </div>
             </div>
             <div className='text-center px-[5%]'>

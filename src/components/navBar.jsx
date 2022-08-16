@@ -20,7 +20,7 @@ const Navbar = ({active}) => {
   return (
     <>
         <nav className={`${active === "home" ? "w-[100%] h-[15vh] py-[3%] bg-[#60d3c9] sm:flex justify-between items-baseline" : "w-[100%] h-[10vh] py-[3%] bg-[#60d3c9] sm:flex justify-between items-baseline absolute top-0 px-[8%]"}`}>
-          <div className='sm:flex items-baseline w-[30%]'>
+          <div className='sm:flex items-baseline w-[40%]'>
             <div className={`w-[50px] h-[50px] rounded-[50%] ${isToggle ? 'bg-[#60d3c9] fixed' : 'bg-[white] relative'} flex justify-center items-center z-50`}>
                 <h1 className={`font-bold text-2xl ${isToggle ? 'text-white' : 'text-[#60d3c9]'}`}>BT</h1>
                 <h1 className={`font-bold text-2xl ${isToggle ? 'text-white' : 'text-[#60d3c9]'} opacity-[0.4] ml-1 absolute z-10 top-[12px]`}>BT</h1>

@@ -29,7 +29,7 @@ const About = () => {
       <div className='flex flex-col items-center justify-center w-full h-[200px]'>
         <p className='font-semibold text-xl mb-4'>Contact me</p>
         <div className='flex w-[100px] justify-between items-center'>
-          <a href="https://web.facebook.com/ThorlaniFootballNews/" target="_blank" rel="noreferrer">
+          <a href="https://web.facebook.com/david.popoola.712" target="_blank" rel="noreferrer">
             <img src="./facebook.png" alt="facebook"/>
           </a>
           <a href="https://twitter.com/tolani_popoola" target="_blank" rel="noreferrer">

@@ -20,7 +20,7 @@ const SignIn = () => {
     const [isloading, setIsLoading] = useState(false)
 
     const navigate = useNavigate()
-    const [formStage, setFormStage] = useState(1)
+    const [formStage, setFormStage] = useState(2)
     const logIn = () => {
         setFormStage(1)
     }
@@ -91,7 +91,7 @@ const SignIn = () => {
                 setIsAuthenticated(true)
                 cookies.set('user', values.username2)
                 if(isAuthenticated){
-                    navigate('/home')
+                    navigate('/account')
                 }
             })
         } catch (error) {
@@ -129,6 +129,54 @@ const SignIn = () => {
             </Carousel>
         </div>
         <div className='bg-white lg:w-[40%] px-8 py-6 relative z-20 flex justify-center'>
+        {
+                formStage === 1 && (
+                    <div>
+                        <div className='w-[50px] h-[50px] rounded-[50%] bg-[#60d3c9] flex justify-center items-center'>
+                            <h1 className='font-bold text-2xl text-[white]'>BT</h1>
+                            <h1 className='font-bold text-2xl text-[white] opacity-[0.4] ml-1 absolute z-10 top-[36px]'>BT</h1>
+                        </div>
+                        <div className='mt-[60px] '>
+                            <h2 className='font-bold text-3xl text-[#60d3c9] relative z-20'>Welcome to my blog project!</h2>
+                            <h2 id='bgText' className='ml-1 absolute z-10 top-[134px] font-bold text-3xl text-[#60d3c9] opacity-[.6]'>Welcome to my blog project!</h2>
+                        </div>
+                        <p className='max-w-[300px] mb-10 text-sm font-normal'>Log in if you have an account or else create a new one by <button onClick={signUp} className='border-b-[1px] border-blue-600 text-blue-600'>Signing up</button></p>
+                        <Formik 
+                            initialValues={LOGIN_VALUES}
+                            validationSchema={validationSchema2}
+                            onSubmit={loginSubmit}
+                        >
+                            <Form>
+                                <div className='flex flex-col mb-3'>
+                                    <label htmlFor="username" className='text-[grey] text-xs font-light'>Username</label>
+                                    <Field
+                                        type='text'
+                                        name='username2'
+                                        className='border-[1px] border-black w-full h-[37px] outline-none indent-2'
+                                        placeholder= 'Username'
+                                    />
+                                    <div className='text-[red] font-normal text-xs'>
+                                        <ErrorMessage name='username2' />
+                                    </div>
+                                </div>
+                                <div className='flex flex-col mb-3'>
+                                    <label htmlFor="password" className='text-[grey] text-xs font-light'>Password</label>
+                                    <Field
+                                        type='password'
+                                        name='password2'
+                                        className='border-[1px] border-black w-full h-[37px] outline-none indent-2'
+                                        placeholder= 'Password'
+                                    />
+                                    <div className='text-[red] font-normal text-xs'>
+                                        <ErrorMessage name='password2' />
+                                    </div>
+                                </div>
+                                <button type='submit' className='flex justify-center mx-auto w-[200px] h-fit py-2 bg-[#60d3c9] text-white rounded-md'>Submit</button>
+                            </Form>
+                        </Formik>
+                    </div>
+                )
+            }
             {
                 formStage === 2 && (
                     <div>
@@ -205,54 +253,6 @@ const SignIn = () => {
                                     />
                                     <div className='text-[red] font-normal text-xs'>
                                         <ErrorMessage name='password' />
-                                    </div>
-                                </div>
-                                <button type='submit' className='flex justify-center mx-auto w-[200px] h-fit py-2 bg-[#60d3c9] text-white rounded-md'>Submit</button>
-                            </Form>
-                        </Formik>
-                    </div>
-                )
-            }
-            {
-                formStage === 1 && (
-                    <div>
-                        <div className='w-[50px] h-[50px] rounded-[50%] bg-[#60d3c9] flex justify-center items-center'>
-                            <h1 className='font-bold text-2xl text-[white]'>BT</h1>
-                            <h1 className='font-bold text-2xl text-[white] opacity-[0.4] ml-1 absolute z-10 top-[36px]'>BT</h1>
-                        </div>
-                        <div className='mt-[60px] '>
-                            <h2 className='font-bold text-3xl text-[#60d3c9] relative z-20'>Welcome to my blog project!</h2>
-                            <h2 id='bgText' className='ml-1 absolute z-10 top-[134px] font-bold text-3xl text-[#60d3c9] opacity-[.6]'>Welcome to my blog project!</h2>
-                        </div>
-                        <p className='max-w-[300px] mb-10 text-sm font-normal'>Log in if you have an account or else create a new one by <button onClick={signUp} className='border-b-[1px] border-blue-600 text-blue-600'>Signing up</button></p>
-                        <Formik 
-                            initialValues={LOGIN_VALUES}
-                            validationSchema={validationSchema2}
-                            onSubmit={loginSubmit}
-                        >
-                            <Form>
-                                <div className='flex flex-col mb-3'>
-                                    <label htmlFor="username" className='text-[grey] text-xs font-light'>Username</label>
-                                    <Field
-                                        type='text'
-                                        name='username2'
-                                        className='border-[1px] border-black w-full h-[37px] outline-none indent-2'
-                                        placeholder= 'Username'
-                                    />
-                                    <div className='text-[red] font-normal text-xs'>
-                                        <ErrorMessage name='username2' />
-                                    </div>
-                                </div>
-                                <div className='flex flex-col mb-3'>
-                                    <label htmlFor="password" className='text-[grey] text-xs font-light'>Password</label>
-                                    <Field
-                                        type='password'
-                                        name='password2'
-                                        className='border-[1px] border-black w-full h-[37px] outline-none indent-2'
-                                        placeholder= 'Password'
-                                    />
-                                    <div className='text-[red] font-normal text-xs'>
-                                        <ErrorMessage name='password2' />
                                     </div>
                                 </div>
                                 <button type='submit' className='flex justify-center mx-auto w-[200px] h-fit py-2 bg-[#60d3c9] text-white rounded-md'>Submit</button>
