@@ -45,8 +45,11 @@ const Navbar = ({active}) => {
           <ul className={`${active === "home" ? "hidden md:flex" : "hidden lg:flex"}`}>
             <li className='text-white'>
               {
-                active === "home" ? <NavLink to='/account'>Account</NavLink> : <NavLink to='/' onClick={logout}>Log Out</NavLink>
+                active === "home" ? <NavLink to='/' onClick={logout}>Log Out</NavLink> : <NavLink to='/' onClick={logout}>Log Out</NavLink>
               }
+              {/* {
+                active === "home" ? <NavLink to='/account'>Account</NavLink> : <NavLink to='/' onClick={logout}>Log Out</NavLink>
+              } */}
             </li>
           </ul>
           <ul className={`${ isToggle ? 'flex' : 'hidden'} fixed z-30 top-0 right-0 w-[100vw] h-[100vh] bg-white flex-col items-center justify-center lg:hidden`}>
@@ -66,8 +69,11 @@ const Navbar = ({active}) => {
             </li>
             <li className='text-[#60d3c9] absolute top-[440px]'>
             {
-              active === "home" ? <NavLink to='/account'>Account</NavLink> : <NavLink to='/' onClick={logout}>Log Out</NavLink>
+              active === "home" ? <NavLink to='/' onClick={logout}>Log Out</NavLink> : <NavLink to='/' onClick={logout}>Log Out</NavLink>
             }
+            {/* {
+              active === "home" ? <NavLink to='/account'>Account</NavLink> : <NavLink to='/' onClick={logout}>Log Out</NavLink>
+            } */}
             </li>
           </ul>
           <button onClick={showMenu} className={`${active === "home" ? `${isToggle ? 'fixed' : 'absolute'} top-8 right-8 z-50 md:hidden` : `${isToggle ? 'fixed' : 'absolute'} top-8 right-8 z-50 lg:hidden`}`}>
