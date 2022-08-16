@@ -91,7 +91,7 @@ const SignIn = () => {
                 setIsAuthenticated(true)
                 cookies.set('user', values.username2)
                 if(isAuthenticated){
-                    navigate('/account')
+                    navigate('/home')
                 }
             })
         } catch (error) {

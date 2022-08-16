@@ -21,11 +21,11 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path='/' element={<SignIn />} />
+          <Route path='/home/read/:id' element={<ReadingPage />} />
           <Route element={<GuardRoute />}>
             <Route exact path='/home' element={<Home />} />
             <Route path='/terms' element={<Terms />} />
             <Route path='/policies' element={<Policies />} />
-            <Route path='/home/read/:id' element={<ReadingPage />} />
             <Route path='/about' element={<About />} />
             <Route path='/account' element={<Account />} />
           </Route>
